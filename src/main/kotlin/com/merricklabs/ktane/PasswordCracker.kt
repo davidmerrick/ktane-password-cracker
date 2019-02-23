@@ -20,7 +20,7 @@ class PasswordCracker {
             "where", "which", "world", "would", "write"
     )
 
-    fun main(args : Array<String>) {
+    fun main(args: Array<String>) {
         println("Hello, World!")
 
         // Build a Trie out of the valid words
