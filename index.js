@@ -1,10 +1,11 @@
+// Answer to this example is "house"
+
 let columns = [
-    "axxxxx",
-    "gxxxxx",
-    "axxxxx",
-    "axxxxx",
-    "ixxxxx",
-    "nxxxxx"
+    "hlgyj",
+    "couee",
+    "sxvsu",
+    "qydks",
+    "xouet"
 ]
 
 let words = [
