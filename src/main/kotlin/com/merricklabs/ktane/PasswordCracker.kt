@@ -2,7 +2,7 @@ package com.merricklabs.ktane
 
 class PasswordCracker {
 
-    val colums = listOf(
+    val columns = listOf(
             "hlgyj",
             "couee",
             "sxvsu",
@@ -19,11 +19,9 @@ class PasswordCracker {
             "these", "thing", "think", "three", "water",
             "where", "which", "world", "would", "write"
     )
+}
 
-    fun main(args: Array<String>) {
-        println("Hello, World!")
-
-        // Build a Trie out of the valid words
-        val trie = Trie()
-    }
+fun main(args: Array<String>) {
+    // Build a Trie out of the valid words
+    val trie = Trie()
 }
