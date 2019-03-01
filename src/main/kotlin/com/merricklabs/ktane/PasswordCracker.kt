@@ -5,11 +5,9 @@ import java.util.Stack
 class PasswordCracker {
 
     val columns = listOf(
-            "hlgaj",
-            "couee",
-            "sxvsu",
-            "qydks",
-            "xouet"
+            "ndzlfm",
+            "uksotm",
+            "utgihr"
     )
 
     val words = listOf(
@@ -41,6 +39,7 @@ fun main(args: Array<String>) {
         // Have we visited everything here?
         if(shouldBacktrack(node, cracker.columns[columnIndex], visited)){
             node = stack.pop()
+            check(!node.isRoot())
             columnIndex--
         } else {
             // Visit stuff here
