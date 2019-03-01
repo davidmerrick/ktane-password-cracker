@@ -5,7 +5,13 @@ import org.testng.annotations.Test
 class PasswordCrackerTest {
 
     @Test
-    fun testHello(){
-        println("hello")
+    fun `Three column test`(){
+        val columns = listOf(
+                "dcwpjz",
+                "niexrg",
+                "nidsbz"
+        )
+
+        // Answer: write
     }
 }

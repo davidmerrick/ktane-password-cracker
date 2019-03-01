@@ -5,9 +5,11 @@ import java.util.Stack
 class PasswordCracker {
 
     val columns = listOf(
-            "ndzlfm",
-            "uksotm",
-            "utgihr"
+            "dcwpjz",
+            "niexrg",
+            "nidsbz",
+            "xxxtxx",
+            "xxexxx"
     )
 
     val words = listOf(
@@ -21,7 +23,7 @@ class PasswordCracker {
     )
 }
 
-fun main(args: Array<String>) {
+fun crackPassword(): String {
     val cracker = PasswordCracker()
 
     // Build a Trie out of the valid words
@@ -57,10 +59,13 @@ fun main(args: Array<String>) {
         }
     }
 
-    val solution = stack.asSequence().filter { it.value != trie.root.value }
+    return stack.asSequence().filter { it.value != trie.root.value }
             .map { it.value.toString() }
             .reduce { a, b -> "$a$b" }
-    println("Solution: $solution")
+}
+
+fun main(args: Array<String>) {
+    println("Solution: ${crackPassword()}")
 }
 
 fun shouldBacktrack(node: Node, column: String, visited: List<Node>): Boolean {
