@@ -24,13 +24,12 @@ data class PasswordCracker(val columns: List<String>) {
         var node = trie.root
 
         val stack = Stack<Node>()
-        stack.push(node)
         var columnIndex = 0
-        while(stack.size < columns.size + 1){ // +1 to account for root node
+        while(stack.size < columns.size){
             // Have we visited everything here?
             if(shouldBacktrack(node, columns[columnIndex], visited)){
-                stack.pop()
-                node = stack.peek()
+                check(!stack.isEmpty())
+                node = stack.pop()
                 columnIndex--
                 check(columnIndex >= 0)
             } else {
@@ -39,23 +38,26 @@ data class PasswordCracker(val columns: List<String>) {
                 for(i in 0 until validChars.size){
                     val child = node.children[validChars[i]]
                     if(!visited.contains(child)){
+                        stack.push(node)
                         node = child!!
+                        visited.add(node)
                         columnIndex++
                         check(columnIndex <= columns.size)
-                        stack.push(node)
-                        visited.add(node)
                         break
                     }
                 }
             }
         }
 
+        // Push final node onto stack
+        stack.push(node)
+
         return stack.asSequence().filter { it.value != trie.root.value }
                 .map { it.value.toString() }
                 .reduce { a, b -> "$a$b" }
     }
 
-    fun shouldBacktrack(node: Node, column: String, visited: List<Node>): Boolean {
+    private fun shouldBacktrack(node: Node, column: String, visited: List<Node>): Boolean {
         // If we've visited all the nodes, or if none of the nodes are in the column, backtrack
         val keySet = node.children.keys
         val columnSet = column.toSet()
